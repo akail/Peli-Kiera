@@ -5,11 +5,15 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% if GOOGLE_SITE_VERIFICATION %}
+        <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}" />
+        {% endif %}
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"/>
         <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}//copy/copy.css">
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed"/>
         {% endif %}
@@ -41,7 +45,7 @@
     <nav>
         <ul>
             {% for title, link in MENUITEMS %}
-                <li><a href="{{ link }}">{{ title }}</a></li>
+            <li><a {% if link ==("/" + output_file) %} class="active" {% endif %}href="{{ link }}">{{ title }}</a></li>
             {% endfor %}
             {% if DISPLAY_CATEGORIES_ON_MENU %}
                 {% for cat, null in categories %}
@@ -66,6 +70,7 @@
     </footer>
 </div>
 {% include 'analytics.html' %}
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/copy/copy.js"></script>
 </body>
 </html>
 

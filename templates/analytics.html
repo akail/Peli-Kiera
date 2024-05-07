@@ -24,3 +24,6 @@
     })();
     </script>
 {% endif %}
+{% if PLAUSIBLE_DOMAIN %}
+<script defer data-domain="{{ PLAUSIBLE_DOMAIN }}" src="{{ PLAUSIBLE_SRC | default('https://plausible.io/js/plausible.js', True)}}"></script>
+{% endif %}
