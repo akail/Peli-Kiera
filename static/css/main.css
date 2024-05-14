@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
   font-family: "Roboto Slab", serif;
   color: #333333;
-  background-color: #fffff4;
+  background-color: #fff;
 }
 
 h1,
@@ -171,6 +171,19 @@ time {
   border-top: 1px solid #f7f7f7;
   font-size: 0.9em;
 }
+
+#container main section.series-nav {
+  margin: 0.5em 0;
+  padding: 0.5em 0;
+  justify-content: center;
+  border-top: 1px solid #f7f7f7;
+  font-size: 0.9em;
+}
+
+.series-active {
+  font-weight: bold;
+}
+
 #left-page {
   text-align: left;
   font-weight: bold;
